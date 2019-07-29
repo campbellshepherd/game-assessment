@@ -32,13 +32,39 @@ namespace WindowsFormsApp1
             ogrerec.Location = new Point(x, y);
             if (move == "right")
             {
-                x += 5;
+                if (ogrerec.Location.X > 380)
+                {
+                    x = 380;
+                }
+                else
+                    x += 5;
             }
             if (move == "left")
             {
-                x -= 5;
+                if (ogrerec.Location.X < 0)
+                {
+                    x = 0;
+                }
+                else
+                    x -= 5;
             }
-
+            if (move == "up")
+            {
+                if (ogrerec.Location.Y < 0)
+                {
+                    y = 0;
+                }
+                else
+                    y -= 5;
+            }
+            if (move == "down")
+            {
+                if(ogrerec.Location.Y>250 )
+                {
+                    y = 250;
+                }else
+                y += 5;
+            }
         }
 
     }
