@@ -30,8 +30,14 @@ namespace WindowsFormsApp1
         public void moveogre(string move)
         {
             ogrerec.Location = new Point(x, y);
-
-            
+            if (move == "right")
+            {
+                x += 5;
+            }
+            if (move == "left")
+            {
+                x -= 5;
+            }
 
         }
 
