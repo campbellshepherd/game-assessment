@@ -4,16 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.Threading.Tasks;
-using System.Drawing;
+
 namespace WindowsFormsApp1
 {
-    class enemies
+    class Enemie
     {
-       public im
+        public Image enemieImage;
+        public int x, y, width, lenght;
+        public Rectangle enemieRec;
+
     }
-    public enemies()
-    {
-       
-    }
-    
 }

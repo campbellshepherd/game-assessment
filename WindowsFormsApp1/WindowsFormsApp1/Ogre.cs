@@ -9,6 +9,7 @@ namespace WindowsFormsApp1
 {
     class Ogre
     {
+       
         Graphics g;
         public int x, y, height, width;
         public Image ogre;
