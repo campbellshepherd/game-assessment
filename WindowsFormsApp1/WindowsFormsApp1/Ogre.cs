@@ -15,8 +15,8 @@ namespace WindowsFormsApp1
         public Rectangle ogrerec;
         public Ogre()
         {
-            x = 100;
-            y = 36;
+            x = 200;
+            y = 100;
             width = 50;
             height = 50;
             ogre = Image.FromFile("ogre.png");
