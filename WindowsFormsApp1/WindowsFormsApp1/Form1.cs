@@ -18,10 +18,16 @@ namespace WindowsFormsApp1
         Ogre player = new Ogre(); //create the object, planet1
         bool left, right,up,down;
         string move;
+        Enemie[] enemie = new Enemie[7];
 
         public Form1()
         {
             InitializeComponent();
+            for (int i = 0; i < 7; i++)
+            {
+                int y = 5 + (i * 45);
+                enemie[i] = new Enemie(y);
+            }
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, PnlGame, new object[] { true });
         }
 
@@ -94,6 +100,10 @@ namespace WindowsFormsApp1
         {
             g = e.Graphics;
             player.drawOgre(g);
+            for (int i = 0; i < 7; i++)
+            {
+                enemie[i].drawEnemie(g);
+            }
 
         }
     }
