@@ -18,8 +18,8 @@ namespace WindowsFormsApp1
         {
             x = 200;
             y = 100;
-            width = 50;
-            height = 50;
+            width = 20;
+            height = 20;
             ogre = Image.FromFile("ogre.png");
             ogrerec = new Rectangle(x, y, width, height);
 

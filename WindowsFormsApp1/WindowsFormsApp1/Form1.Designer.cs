@@ -38,7 +38,6 @@
             this.startMusicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopMusicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,6 +45,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.Tmrogre = new System.Windows.Forms.Timer(this.components);
+            this.lblScore = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -127,13 +128,6 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 4;
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(517, 225);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 5;
-            // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(517, 403);
@@ -196,8 +190,23 @@
             // Tmrogre
             // 
             this.Tmrogre.Enabled = true;
-            this.Tmrogre.Interval = 1;
+            this.Tmrogre.Interval = 20;
             this.Tmrogre.Tick += new System.EventHandler(this.Tmrogre_Tick);
+            // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblScore.Location = new System.Drawing.Point(551, 227);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(0, 13);
+            this.lblScore.TabIndex = 12;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -205,13 +214,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(629, 450);
+            this.Controls.Add(this.lblScore);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Lives);
@@ -242,7 +251,6 @@
         private System.Windows.Forms.ToolStripMenuItem startMusicToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stopMusicToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label2;
@@ -250,6 +258,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Timer Tmrogre;
+        private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

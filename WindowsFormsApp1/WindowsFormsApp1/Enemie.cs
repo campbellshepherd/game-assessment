@@ -7,24 +7,36 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    class Enemie
+    class Enemy
     {
-        public Image enemieImage;
+        public int score;
+        public Image enemyImage;
         public int x, y, width, height;
-        public Rectangle enemieRec;
-        public Enemie(int spacing)
+        public Rectangle enemyRec;
+        public Enemy(int spacing)
         {
-            x =0 ;
+            x =10 ;
             y = spacing;
             width = 25;
             height = 25;
-            enemieImage = Image.FromFile("enemie.png");
-            enemieRec= new Rectangle(x, y, width, height);
+            enemyImage = Image.FromFile("enemie.png");
+            enemyRec= new Rectangle(x, y, width, height);
         }
         public void drawEnemie(Graphics g)
         {
-            enemieRec = new Rectangle(x, y, width, height);
-            g.DrawImage(enemieImage, enemieRec);
+            enemyRec = new Rectangle(x, y, width, height);
+            g.DrawImage(enemyImage, enemyRec);
+        }
+        public void moveEnemy()
+        {
+            enemyRec.Location = new Point(x, y);
+            if (enemyRec.Location.X>380)
+            {
+                score += 1;
+                x =0;
+                enemyRec.Location = new Point(x, y);
+            }
+
         }
     }
     
