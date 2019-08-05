@@ -29,6 +29,7 @@ namespace WindowsFormsApp1
         }
         public void moveEnemy()
         {
+
             enemyRec.Location = new Point(x, y);
             if (enemyRec.Location.X>380)
             {

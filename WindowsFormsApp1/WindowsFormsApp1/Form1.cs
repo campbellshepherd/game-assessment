@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Drawing;
+
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,13 +21,15 @@ namespace WindowsFormsApp1
         string move;
         Enemy[] enemy = new Enemy[7];
         Random xspeed = new Random();
-        int score=1;
+        int score;
         
         
         public Form1()
         {
             InitializeComponent();
-           
+
+            score = 10;
+            LbScore.Text=score.ToString();
             for (int i = 0; i < 7; i++)
             {
                 int y = 5 + (i * 45);
@@ -62,17 +64,30 @@ namespace WindowsFormsApp1
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            for (int i = 0; i < 7; i++)
-            {
-                lblScore.Text = score.ToString();
-                score += enemy[i].score;
-                enemy[i].moveEnemy();
-            }
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TmrEnemy_Tick(object sender, EventArgs e)
+        {
+            int score = 0;
+            for (int i = 0; i < 7; i++)
+            {
+
+                enemy[i].moveEnemy();
+                score += enemy[i].score;
+                LbScore.Text = score.ToString();
+
+            }
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
@@ -109,7 +124,7 @@ namespace WindowsFormsApp1
 
             }
             PnlGame.Invalidate();
-           
+            
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

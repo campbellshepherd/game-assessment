@@ -45,8 +45,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.Tmrogre = new System.Windows.Forms.Timer(this.components);
-            this.lblScore = new System.Windows.Forms.Label();
+            this.LbScore = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.TmrEnemy = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -127,6 +128,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 4;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox3
             // 
@@ -137,7 +139,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(517, 315);
+            this.textBox4.Location = new System.Drawing.Point(517, 227);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 7;
@@ -193,14 +195,15 @@
             this.Tmrogre.Interval = 20;
             this.Tmrogre.Tick += new System.EventHandler(this.Tmrogre_Tick);
             // 
-            // lblScore
+            // LbScore
             // 
-            this.lblScore.AutoSize = true;
-            this.lblScore.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblScore.Location = new System.Drawing.Point(551, 227);
-            this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(0, 13);
-            this.lblScore.TabIndex = 12;
+            this.LbScore.AutoSize = true;
+            this.LbScore.BackColor = System.Drawing.Color.White;
+            this.LbScore.ForeColor = System.Drawing.Color.Brown;
+            this.LbScore.Location = new System.Drawing.Point(548, 322);
+            this.LbScore.Name = "LbScore";
+            this.LbScore.Size = new System.Drawing.Size(0, 13);
+            this.LbScore.TabIndex = 12;
             // 
             // timer1
             // 
@@ -208,13 +211,19 @@
             this.timer1.Interval = 1000000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // TmrEnemy
+            // 
+            this.TmrEnemy.Enabled = true;
+            this.TmrEnemy.Interval = 1;
+            this.TmrEnemy.Tick += new System.EventHandler(this.TmrEnemy_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(629, 450);
-            this.Controls.Add(this.lblScore);
+            this.Controls.Add(this.LbScore);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -258,8 +267,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Timer Tmrogre;
-        private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.Label LbScore;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer TmrEnemy;
     }
 }
 
