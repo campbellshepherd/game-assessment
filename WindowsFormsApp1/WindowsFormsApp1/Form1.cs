@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
         Ogre player = new Ogre(); //create the object, planet1
         bool left, right,up,down;
         string move;
-        Enemy[] enemy = new Enemy[7];
+        Enemy[] enemy = new Enemy[8];
         Random xspeed = new Random();
         int score;
         
@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
 
             score = 10;
             LbScore.Text=score.ToString();
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 8; i++)
             {
                 int y = 5 + (i * 45);
                 enemy[i] = new Enemy(y);
@@ -80,9 +80,10 @@ namespace WindowsFormsApp1
         private void TmrEnemy_Tick(object sender, EventArgs e)
         {
             int score = 0;
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 8; i++)
             {
-
+                int rndmspeed = xspeed.Next(1, 35);
+                enemy[i].x += rndmspeed;
                 enemy[i].moveEnemy();
                 score += enemy[i].score;
                 LbScore.Text = score.ToString();
@@ -131,13 +132,12 @@ namespace WindowsFormsApp1
         {
             g = e.Graphics;
             player.drawOgre(g);
-
-            for (int i = 0; i < 7; i++)
+            
+            for (int i = 0; i < 8; i++)
             {
-                enemy[i].moveEnemy();
-                int rndmspeed = xspeed.Next(1, 8);
-                enemy[i].x += rndmspeed;
                 enemy[i].drawEnemie(g);
+
+
             }
 
         }

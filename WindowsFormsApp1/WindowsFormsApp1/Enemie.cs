@@ -17,8 +17,8 @@ namespace WindowsFormsApp1
         {
             x =10 ;
             y = spacing;
-            width = 25;
-            height = 25;
+            width = 40;
+            height = 40;
             enemyImage = Image.FromFile("enemie.png");
             enemyRec= new Rectangle(x, y, width, height);
         }
@@ -31,7 +31,7 @@ namespace WindowsFormsApp1
         {
 
             enemyRec.Location = new Point(x, y);
-            if (enemyRec.Location.X>380)
+            if (enemyRec.Location.X>500)
             {
                 score += 1;
                 x =0;

@@ -18,8 +18,8 @@ namespace WindowsFormsApp1
         {
             x = 200;
             y = 100;
-            width = 20;
-            height = 20;
+            width = 30;
+            height = 30;
             ogre = Image.FromFile("ogre.png");
             ogrerec = new Rectangle(x, y, width, height);
 
@@ -33,9 +33,9 @@ namespace WindowsFormsApp1
             ogrerec.Location = new Point(x, y);
             if (move == "right")
             {
-                if (ogrerec.Location.X > 380)
+                if (ogrerec.Location.X > 500)
                 {
-                    x = 380;
+                    x = 500;
                 }
                 else
                     x += 5;
@@ -60,9 +60,9 @@ namespace WindowsFormsApp1
             }
             if (move == "down")
             {
-                if(ogrerec.Location.Y>250 )
+                if(ogrerec.Location.Y>350 )
                 {
-                    y = 250;
+                    y = 350;
                 }else
                 y += 5;
             }
