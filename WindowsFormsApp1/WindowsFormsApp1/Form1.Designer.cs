@@ -39,7 +39,7 @@
             this.stopMusicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.TxtLives = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -102,6 +102,7 @@
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
             this.startToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.startToolStripMenuItem.Text = "Start";
+            this.startToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
             // 
             // stopToolStripMenuItem
             // 
@@ -136,12 +137,13 @@
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 6;
             // 
-            // textBox4
+            // TxtLives
             // 
-            this.textBox4.Location = new System.Drawing.Point(651, 240);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 7;
+            this.TxtLives.Location = new System.Drawing.Point(651, 240);
+            this.TxtLives.Name = "TxtLives";
+            this.TxtLives.Size = new System.Drawing.Size(100, 20);
+            this.TxtLives.TabIndex = 7;
+            this.TxtLives.TextChanged += new System.EventHandler(this.TxtLives_TextChanged);
             // 
             // label2
             // 
@@ -190,8 +192,7 @@
             // 
             // Tmrogre
             // 
-            this.Tmrogre.Enabled = true;
-            this.Tmrogre.Interval = 20;
+            this.Tmrogre.Interval = 1;
             this.Tmrogre.Tick += new System.EventHandler(this.Tmrogre_Tick);
             // 
             // LbScore
@@ -206,7 +207,6 @@
             // 
             // TmrEnemy
             // 
-            this.TmrEnemy.Enabled = true;
             this.TmrEnemy.Tick += new System.EventHandler(this.TmrEnemy_Tick);
             // 
             // Form1
@@ -220,7 +220,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.TxtLives);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -253,7 +253,7 @@
         private System.Windows.Forms.ToolStripMenuItem stopMusicToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox TxtLives;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

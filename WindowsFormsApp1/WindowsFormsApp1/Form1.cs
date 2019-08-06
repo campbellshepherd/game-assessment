@@ -14,14 +14,14 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        Rectangle enemyRec;
+       
         Graphics g; //declare a graphics object called g
         Ogre player = new Ogre(); //create the object, planet1
         bool left, right,up,down;
         string move;
         Enemy[] enemy = new Enemy[8];
         Random xspeed = new Random();
-        int score;
+        int score,lives;
         
         
         public Form1()
@@ -87,8 +87,35 @@ namespace WindowsFormsApp1
                 enemy[i].moveEnemy();
                 score += enemy[i].score;
                 LbScore.Text = score.ToString();
+                if (player.ogrerec.IntersectsWith(enemy[i].enemyRec))
+                {
+                    //reset planet[i] back to top of panel
+                    enemy[i].x = 30; // set  y value of planetRec
+                    lives -= 1;// lose a life
+                    TxtLives.Text = lives.ToString();// display number of lives
+                    
+                }
+                if (lives < 1)
+                {
+                    Tmrogre.Enabled = false;
+                    TmrEnemy.Enabled = false;
+                    MessageBox.Show("Game Over");
+                }
 
             }
+            
+        }
+
+        private void startToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TmrEnemy.Enabled = true;
+            Tmrogre.Enabled = true;
+            lives = int.Parse(TxtLives.Text);
+        }
+
+        private void TxtLives_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
@@ -127,7 +154,7 @@ namespace WindowsFormsApp1
             PnlGame.Invalidate();
             
         }
-
+    
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             g = e.Graphics;
