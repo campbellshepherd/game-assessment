@@ -47,6 +47,7 @@
             this.Tmrogre = new System.Windows.Forms.Timer(this.components);
             this.LbScore = new System.Windows.Forms.Label();
             this.TmrEnemy = new System.Windows.Forms.Timer(this.components);
+            this.TmrSpeedup = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -199,7 +200,7 @@
             // 
             this.LbScore.AutoSize = true;
             this.LbScore.BackColor = System.Drawing.Color.White;
-            this.LbScore.ForeColor = System.Drawing.Color.Brown;
+            this.LbScore.ForeColor = System.Drawing.Color.Black;
             this.LbScore.Location = new System.Drawing.Point(682, 335);
             this.LbScore.Name = "LbScore";
             this.LbScore.Size = new System.Drawing.Size(0, 13);
@@ -207,7 +208,14 @@
             // 
             // TmrEnemy
             // 
+            this.TmrEnemy.Interval = 200;
             this.TmrEnemy.Tick += new System.EventHandler(this.TmrEnemy_Tick);
+            // 
+            // TmrSpeedup
+            // 
+            this.TmrSpeedup.Enabled = true;
+            this.TmrSpeedup.Interval = 10000;
+            this.TmrSpeedup.Tick += new System.EventHandler(this.TmrSpeedup_Tick);
             // 
             // Form1
             // 
@@ -230,7 +238,7 @@
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Ogre Blaster";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
@@ -261,6 +269,7 @@
         private System.Windows.Forms.Timer Tmrogre;
         private System.Windows.Forms.Label LbScore;
         private System.Windows.Forms.Timer TmrEnemy;
+        private System.Windows.Forms.Timer TmrSpeedup;
     }
 }
 

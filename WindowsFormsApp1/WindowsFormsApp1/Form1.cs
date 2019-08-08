@@ -32,7 +32,7 @@ namespace WindowsFormsApp1
             LbScore.Text=score.ToString();
             for (int i = 0; i < 8; i++)
             {
-                int y = 5 + (i * 45);
+                int y = 5 + (i * 55);
                 enemy[i] = new Enemy(y);
             }
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, PnlGame, new object[] { true });
@@ -82,7 +82,7 @@ namespace WindowsFormsApp1
             int score = 0;
             for (int i = 0; i < 8; i++)
             {
-                int rndmspeed = xspeed.Next(1, 35);
+                int rndmspeed = xspeed.Next(2, 40);
                 enemy[i].x += rndmspeed;
                 enemy[i].moveEnemy();
                 score += enemy[i].score;
@@ -111,6 +111,20 @@ namespace WindowsFormsApp1
             TmrEnemy.Enabled = true;
             Tmrogre.Enabled = true;
             lives = int.Parse(TxtLives.Text);
+        }
+
+        private void TmrSpeedup_Tick(object sender, EventArgs e)
+        {
+            if (TmrEnemy.Interval > 40)
+            {
+                TmrEnemy.Interval = 45;
+            }
+            else TmrEnemy.Interval -= 10;
+
+           
+
+
+
         }
 
         private void TxtLives_TextChanged(object sender, EventArgs e)

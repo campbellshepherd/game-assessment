@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
             y = spacing;
             width = 40;
             height = 40;
-            enemyImage = Image.FromFile("enemie.png");
+            enemyImage = Image.FromFile("enemy.png");
             enemyRec= new Rectangle(x, y, width, height);
         }
         public void drawEnemie(Graphics g)
