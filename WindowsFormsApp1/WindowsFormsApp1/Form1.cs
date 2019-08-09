@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,22 +13,23 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-       
+
         Graphics g; //declare a graphics object called g
         Ogre player = new Ogre(); //create the object, planet1
-        bool left, right,up,down;
+        bool left, right, up, down;
+        bool nameStart, liveStart;
         string move;
         Enemy[] enemy = new Enemy[8];
         Random xspeed = new Random();
-        int score,lives;
-        
-        
+        int score, lives;
+
+
         public Form1()
         {
             InitializeComponent();
 
             score = 10;
-            LbScore.Text=score.ToString();
+            LbScore.Text = score.ToString();
             for (int i = 0; i < 8; i++)
             {
                 int y = 5 + (i * 55);
@@ -55,7 +55,7 @@ namespace WindowsFormsApp1
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            
+
             if (e.KeyData == Keys.Left) { left = true; }
             if (e.KeyData == Keys.Right) { right = true; }
             if (e.KeyData == Keys.Up) { up = true; }
@@ -64,7 +64,7 @@ namespace WindowsFormsApp1
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-           
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -74,15 +74,65 @@ namespace WindowsFormsApp1
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            string context = textBox1.Text;
+            bool isletter = true;
+            //for loop checks for letters as characters are entered
+            for (int i = 0; i < context.Length; i++)
+            {
+                if (!char.IsLetter(context[i]))// if current character not a letter
+                {
+                    isletter = false;//make isletter false
+                    break; // exit the for loop
+                }
 
+            }
+
+            // if not a letter clear the textbox and focus on it
+            // to enter name again
+            if (isletter == false)
+            {
+                textBox1.Clear();
+                textBox1.Focus();
+            }
+            else
+            {
+                nameStart = true;
+            }
         }
+
+        private void TxtLives_TextChanged(object sender, EventArgs e)
+        {
+            string context = TxtLives.Text;
+            bool isnumber = true;
+            //This loop checks for numbers as characters are entered
+            for (int i = 0; i < context.Length; i++)
+            {
+                if (!char.IsNumber(context[i]))//If current character is not a number
+                {
+                    isnumber = false;
+                    break;
+                }
+            }
+            //If not a number clear the textbox and focus on it
+            //to enter lives again
+            if (isnumber == false)
+            {
+                TxtLives.Clear();
+                TxtLives.Focus();
+            }
+            else
+            {
+                liveStart = true;
+            }
+        }
+    
 
         private void TmrEnemy_Tick(object sender, EventArgs e)
         {
             int score = 0;
             for (int i = 0; i < 8; i++)
             {
-                int rndmspeed = xspeed.Next(2, 40);
+                int rndmspeed = xspeed.Next(1, 20);
                 enemy[i].x += rndmspeed;
                 enemy[i].moveEnemy();
                 score += enemy[i].score;
@@ -110,16 +160,29 @@ namespace WindowsFormsApp1
         {
             TmrEnemy.Enabled = true;
             Tmrogre.Enabled = true;
+            TmrSpeedup.Enabled = true;
             lives = int.Parse(TxtLives.Text);
+        }
+
+        private void TmeStartcheck_Tick(object sender, EventArgs e)
+        {
+            if (liveStart == true && nameStart == true)
+            {
+                MnuStart.Enabled = true;
+            }
+           
+                    
+
+            
         }
 
         private void TmrSpeedup_Tick(object sender, EventArgs e)
         {
-            if (TmrEnemy.Interval > 40)
+            if (TmrEnemy.Interval > 30)
             {
-                TmrEnemy.Interval = 45;
+                TmrEnemy.Interval = 35;
             }
-            else TmrEnemy.Interval -= 10;
+            else TmrEnemy.Interval -= 4;
 
            
 
@@ -127,10 +190,14 @@ namespace WindowsFormsApp1
 
         }
 
-        private void TxtLives_TextChanged(object sender, EventArgs e)
+        private void MnuStop_Click(object sender, EventArgs e)
         {
-
+            TmrEnemy.Enabled = false;
+            Tmrogre.Enabled = false;
+            TmrSpeedup.Enabled = false;
         }
+
+       
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {

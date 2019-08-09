@@ -33,8 +33,8 @@
             this.Lives = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuStart = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuStop = new System.Windows.Forms.ToolStripMenuItem();
             this.startMusicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopMusicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -48,6 +48,7 @@
             this.LbScore = new System.Windows.Forms.Label();
             this.TmrEnemy = new System.Windows.Forms.Timer(this.components);
             this.TmrSpeedup = new System.Windows.Forms.Timer(this.components);
+            this.TmeStartcheck = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,8 +89,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.startToolStripMenuItem,
-            this.stopToolStripMenuItem,
+            this.MnuStart,
+            this.MnuStop,
             this.startMusicToolStripMenuItem,
             this.stopMusicToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -98,18 +99,20 @@
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // startToolStripMenuItem
+            // MnuStart
             // 
-            this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.startToolStripMenuItem.Text = "Start";
-            this.startToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
+            this.MnuStart.Enabled = false;
+            this.MnuStart.Name = "MnuStart";
+            this.MnuStart.Size = new System.Drawing.Size(43, 20);
+            this.MnuStart.Text = "Start";
+            this.MnuStart.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
             // 
-            // stopToolStripMenuItem
+            // MnuStop
             // 
-            this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.stopToolStripMenuItem.Text = "Stop";
+            this.MnuStop.Name = "MnuStop";
+            this.MnuStop.Size = new System.Drawing.Size(43, 20);
+            this.MnuStop.Text = "Stop";
+            this.MnuStop.Click += new System.EventHandler(this.MnuStop_Click);
             // 
             // startMusicToolStripMenuItem
             // 
@@ -213,9 +216,14 @@
             // 
             // TmrSpeedup
             // 
-            this.TmrSpeedup.Enabled = true;
             this.TmrSpeedup.Interval = 10000;
             this.TmrSpeedup.Tick += new System.EventHandler(this.TmrSpeedup_Tick);
+            // 
+            // TmeStartcheck
+            // 
+            this.TmeStartcheck.Enabled = true;
+            this.TmeStartcheck.Interval = 1;
+            this.TmeStartcheck.Tick += new System.EventHandler(this.TmeStartcheck_Tick);
             // 
             // Form1
             // 
@@ -255,8 +263,8 @@
         private System.Windows.Forms.Label Lives;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MnuStart;
+        private System.Windows.Forms.ToolStripMenuItem MnuStop;
         private System.Windows.Forms.ToolStripMenuItem startMusicToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stopMusicToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox1;
@@ -270,6 +278,7 @@
         private System.Windows.Forms.Label LbScore;
         private System.Windows.Forms.Timer TmrEnemy;
         private System.Windows.Forms.Timer TmrSpeedup;
+        private System.Windows.Forms.Timer TmeStartcheck;
     }
 }
 
