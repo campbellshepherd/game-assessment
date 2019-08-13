@@ -49,6 +49,7 @@
             this.TmrEnemy = new System.Windows.Forms.Timer(this.components);
             this.TmrSpeedup = new System.Windows.Forms.Timer(this.components);
             this.TmeStartcheck = new System.Windows.Forms.Timer(this.components);
+            this.TmrGun = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -225,6 +226,11 @@
             this.TmeStartcheck.Interval = 1;
             this.TmeStartcheck.Tick += new System.EventHandler(this.TmeStartcheck_Tick);
             // 
+            // TmrGun
+            // 
+            this.TmrGun.Enabled = true;
+            this.TmrGun.Tick += new System.EventHandler(this.TmrGun_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,6 +285,7 @@
         private System.Windows.Forms.Timer TmrEnemy;
         private System.Windows.Forms.Timer TmrSpeedup;
         private System.Windows.Forms.Timer TmeStartcheck;
+        private System.Windows.Forms.Timer TmrGun;
     }
 }
 

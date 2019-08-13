@@ -16,13 +16,14 @@ namespace WindowsFormsApp1
 
         Graphics g; //declare a graphics object called g
         Ogre player = new Ogre(); //create the object, planet1
-        bool left, right, up, down;
+        bool left, right, up, down,space;
         bool nameStart, liveStart;
-        string move;
-        Enemy[] enemy = new Enemy[8];
+        string move,shoot;
+        Enemy[] enemy = new Enemy[7];
         Random xspeed = new Random();
+        Gun gun = new Gun();
         int score, lives;
-
+        
 
         public Form1()
         {
@@ -30,7 +31,7 @@ namespace WindowsFormsApp1
 
             score = 10;
             LbScore.Text = score.ToString();
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 7; i++)
             {
                 int y = 5 + (i * 55);
                 enemy[i] = new Enemy(y);
@@ -55,7 +56,7 @@ namespace WindowsFormsApp1
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyData == Keys.Space) { space = true; }
             if (e.KeyData == Keys.Left) { left = true; }
             if (e.KeyData == Keys.Right) { right = true; }
             if (e.KeyData == Keys.Up) { up = true; }
@@ -130,7 +131,7 @@ namespace WindowsFormsApp1
         private void TmrEnemy_Tick(object sender, EventArgs e)
         {
             int score = 0;
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 7; i++)
             {
                 int rndmspeed = xspeed.Next(1, 20);
                 enemy[i].x += rndmspeed;
@@ -174,6 +175,11 @@ namespace WindowsFormsApp1
                     
 
             
+        }
+
+        private void TmrGun_Tick(object sender, EventArgs e)
+        {
+
         }
 
         private void TmrSpeedup_Tick(object sender, EventArgs e)
@@ -241,7 +247,7 @@ namespace WindowsFormsApp1
             g = e.Graphics;
             player.drawOgre(g);
             
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 7; i++)
             {
                 enemy[i].drawEnemie(g);
 
