@@ -38,7 +38,7 @@
             this.startMusicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopMusicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TxtBullets = new System.Windows.Forms.TextBox();
             this.TxtLives = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -135,12 +135,12 @@
             this.textBox1.TabIndex = 4;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox3
+            // TxtBullets
             // 
-            this.textBox3.Location = new System.Drawing.Point(651, 416);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 6;
+            this.TxtBullets.Location = new System.Drawing.Point(651, 416);
+            this.TxtBullets.Name = "TxtBullets";
+            this.TxtBullets.Size = new System.Drawing.Size(100, 20);
+            this.TxtBullets.TabIndex = 6;
             // 
             // TxtLives
             // 
@@ -229,6 +229,7 @@
             // TmrGun
             // 
             this.TmrGun.Enabled = true;
+            this.TmrGun.Interval = 1;
             this.TmrGun.Tick += new System.EventHandler(this.TmrGun_Tick);
             // 
             // Form1
@@ -243,7 +244,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TxtLives);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.TxtBullets);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Lives);
@@ -274,7 +275,7 @@
         private System.Windows.Forms.ToolStripMenuItem startMusicToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stopMusicToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TxtBullets;
         private System.Windows.Forms.TextBox TxtLives;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

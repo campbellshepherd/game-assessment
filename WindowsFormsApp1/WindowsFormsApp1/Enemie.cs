@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
             enemyImage = Image.FromFile("enemy.png");
             enemyRec= new Rectangle(x, y, width, height);
         }
-        public void drawEnemie(Graphics g)
+        public void drawEnemy(Graphics g)
         {
             enemyRec = new Rectangle(x, y, width, height);
             g.DrawImage(enemyImage, enemyRec);

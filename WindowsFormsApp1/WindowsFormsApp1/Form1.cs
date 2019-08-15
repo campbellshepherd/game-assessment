@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
         Enemy[] enemy = new Enemy[7];
         Random xspeed = new Random();
         Gun gun = new Gun();
-        int score, lives;
+        int score, lives,bullet;
         
 
         public Form1()
@@ -56,7 +56,10 @@ namespace WindowsFormsApp1
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == Keys.Space) { space = true; }
+            if (e.KeyData == Keys.Space) { if (bullet>0) { gun.gunrec.X = player.ogrerec.X;
+                    gun.gunrec.Y = player.ogrerec.Y; bullet -= 1;
+                }
+            }
             if (e.KeyData == Keys.Left) { left = true; }
             if (e.KeyData == Keys.Right) { right = true; }
             if (e.KeyData == Keys.Up) { up = true; }
@@ -163,6 +166,7 @@ namespace WindowsFormsApp1
             Tmrogre.Enabled = true;
             TmrSpeedup.Enabled = true;
             lives = int.Parse(TxtLives.Text);
+            bullet = int.Parse(TxtBullets.Text);
         }
 
         private void TmeStartcheck_Tick(object sender, EventArgs e)
@@ -179,7 +183,16 @@ namespace WindowsFormsApp1
 
         private void TmrGun_Tick(object sender, EventArgs e)
         {
-
+            TxtBullets.Text = bullet.ToString();
+            gun.gunrec.X -= 6;
+            for (int i = 0; i < 7; i++)
+            {
+                if (gun.gunrec.IntersectsWith(enemy[i].enemyRec))
+                {
+                    enemy[i].x = 30;
+                    gun.gunrec.X = -100;
+                }
+            }
         }
 
         private void TmrSpeedup_Tick(object sender, EventArgs e)
@@ -246,10 +259,11 @@ namespace WindowsFormsApp1
         {
             g = e.Graphics;
             player.drawOgre(g);
+            gun.drawgun(g);
             
             for (int i = 0; i < 7; i++)
             {
-                enemy[i].drawEnemie(g);
+                enemy[i].drawEnemy(g);
 
 
             }

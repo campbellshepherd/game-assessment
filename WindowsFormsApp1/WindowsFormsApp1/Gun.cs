@@ -11,18 +11,24 @@ namespace WindowsFormsApp1
     {
         Graphics g;
         public int x, y, height, width;
-        public Image gun;
+        public Image gunImage;
         public Rectangle gunrec;
         public Gun()
         {
-            width = 6;
-            height = 3;
-            
+            width = 20;
+            height = 40;
+            y = -100;
+            x = -100;
+            gunImage = Image.FromFile("bullet.png");
+            gunrec = new Rectangle(x, y, width, height);
         }
         public void gunshoot(string shoot)
         {
             
         }
-
+        public void drawgun(Graphics g)
+        {
+            g.DrawImage(gunImage, gunrec);
+        }
     }
 }
