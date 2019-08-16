@@ -16,9 +16,9 @@ namespace WindowsFormsApp1
 
         Graphics g; //declare a graphics object called g
         Ogre player = new Ogre(); //create the object, planet1
-        bool left, right, up, down,space;
-        bool nameStart, liveStart;
-        string move,shoot;
+        bool left, right, up, down;
+        bool nameStart, liveStart,bulletStart;
+        string move;
         Enemy[] enemy = new Enemy[7];
         Random xspeed = new Random();
         Gun gun = new Gun();
@@ -28,8 +28,9 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
-
-            score = 10;
+            MessageBox.Show("Use the arrow keys to move the ogre. \nDon't get hit by the red guys. \nUse space bar to shoot if you get stuck in a sticky situation. \nPlease type your name, lives and how many bullets you want.","Game Instructions");
+            
+            score =0;
             LbScore.Text = score.ToString();
             for (int i = 0; i < 7; i++)
             {
@@ -124,6 +125,7 @@ namespace WindowsFormsApp1
                 TxtLives.Clear();
                 TxtLives.Focus();
             }
+            
             else
             {
                 liveStart = true;
@@ -153,11 +155,37 @@ namespace WindowsFormsApp1
                 {
                     Tmrogre.Enabled = false;
                     TmrEnemy.Enabled = false;
-                    MessageBox.Show("Game Over");
+                    MessageBox.Show(score.ToString(),"your score was");
                 }
 
             }
             
+        }
+
+        private void TxtBullets_TextChanged(object sender, EventArgs e)
+        {
+            string context = TxtBullets.Text;
+            bool isnumber = true;
+            //This loop checks for numbers as characters are entered
+            for (int i = 0; i < context.Length; i++)
+            {
+                if (!char.IsNumber(context[i]))//If current character is not a number
+                {
+                    isnumber = false;
+                    break;
+                }
+            }
+            //If not a number clear the textbox and focus on it
+            //to enter lives again
+            if (isnumber == false)
+            {
+                TxtBullets.Clear();
+                TxtBullets.Focus();
+            }
+            else
+            {
+                bulletStart = true;
+            }
         }
 
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
@@ -165,13 +193,14 @@ namespace WindowsFormsApp1
             TmrEnemy.Enabled = true;
             Tmrogre.Enabled = true;
             TmrSpeedup.Enabled = true;
+            TmrGun.Enabled = true;
             lives = int.Parse(TxtLives.Text);
             bullet = int.Parse(TxtBullets.Text);
         }
 
         private void TmeStartcheck_Tick(object sender, EventArgs e)
         {
-            if (liveStart == true && nameStart == true)
+            if (liveStart == true && nameStart == true && bulletStart == true)
             {
                 MnuStart.Enabled = true;
             }
@@ -214,6 +243,7 @@ namespace WindowsFormsApp1
             TmrEnemy.Enabled = false;
             Tmrogre.Enabled = false;
             TmrSpeedup.Enabled = false;
+            TmrGun.Enabled = false;
         }
 
        

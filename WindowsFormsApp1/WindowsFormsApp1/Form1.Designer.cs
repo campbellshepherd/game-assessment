@@ -141,6 +141,7 @@
             this.TxtBullets.Name = "TxtBullets";
             this.TxtBullets.Size = new System.Drawing.Size(100, 20);
             this.TxtBullets.TabIndex = 6;
+            this.TxtBullets.TextChanged += new System.EventHandler(this.TxtBullets_TextChanged);
             // 
             // TxtLives
             // 
@@ -228,7 +229,6 @@
             // 
             // TmrGun
             // 
-            this.TmrGun.Enabled = true;
             this.TmrGun.Interval = 1;
             this.TmrGun.Tick += new System.EventHandler(this.TmrGun_Tick);
             // 
