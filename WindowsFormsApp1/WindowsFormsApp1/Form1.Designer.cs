@@ -35,8 +35,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.MnuStart = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuStop = new System.Windows.Forms.ToolStripMenuItem();
-            this.startMusicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopMusicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuMusicStart = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuMusicStop = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.TxtBullets = new System.Windows.Forms.TextBox();
             this.TxtLives = new System.Windows.Forms.TextBox();
@@ -92,8 +92,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MnuStart,
             this.MnuStop,
-            this.startMusicToolStripMenuItem,
-            this.stopMusicToolStripMenuItem});
+            this.MnuMusicStart,
+            this.MnuMusicStop});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(773, 24);
@@ -115,17 +115,19 @@
             this.MnuStop.Text = "Stop";
             this.MnuStop.Click += new System.EventHandler(this.MnuStop_Click);
             // 
-            // startMusicToolStripMenuItem
+            // MnuMusicStart
             // 
-            this.startMusicToolStripMenuItem.Name = "startMusicToolStripMenuItem";
-            this.startMusicToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
-            this.startMusicToolStripMenuItem.Text = "Start Music";
+            this.MnuMusicStart.Name = "MnuMusicStart";
+            this.MnuMusicStart.Size = new System.Drawing.Size(78, 20);
+            this.MnuMusicStart.Text = "Start Music";
+            this.MnuMusicStart.Click += new System.EventHandler(this.MnuMusicStart_Click);
             // 
-            // stopMusicToolStripMenuItem
+            // MnuMusicStop
             // 
-            this.stopMusicToolStripMenuItem.Name = "stopMusicToolStripMenuItem";
-            this.stopMusicToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
-            this.stopMusicToolStripMenuItem.Text = "Stop Music";
+            this.MnuMusicStop.Name = "MnuMusicStop";
+            this.MnuMusicStop.Size = new System.Drawing.Size(78, 20);
+            this.MnuMusicStop.Text = "Stop Music";
+            this.MnuMusicStop.Click += new System.EventHandler(this.MnuMusicStop_Click);
             // 
             // textBox1
             // 
@@ -218,7 +220,7 @@
             // 
             // TmrSpeedup
             // 
-            this.TmrSpeedup.Interval = 10000;
+            this.TmrSpeedup.Interval = 9000;
             this.TmrSpeedup.Tick += new System.EventHandler(this.TmrSpeedup_Tick);
             // 
             // TmeStartcheck
@@ -272,8 +274,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem MnuStart;
         private System.Windows.Forms.ToolStripMenuItem MnuStop;
-        private System.Windows.Forms.ToolStripMenuItem startMusicToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem stopMusicToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MnuMusicStart;
+        private System.Windows.Forms.ToolStripMenuItem MnuMusicStop;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox TxtBullets;
         private System.Windows.Forms.TextBox TxtLives;

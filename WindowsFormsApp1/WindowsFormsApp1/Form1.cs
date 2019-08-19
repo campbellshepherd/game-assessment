@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -198,6 +199,19 @@ namespace WindowsFormsApp1
             bullet = int.Parse(TxtBullets.Text);
         }
 
+        private void MnuMusicStart_Click(object sender, EventArgs e)
+        {
+            System.Media.SoundPlayer simpleSound = new System.Media.SoundPlayer();
+            simpleSound.Play();
+            
+        }
+
+        private void MnuMusicStop_Click(object sender, EventArgs e)
+        {
+            System.Media.SoundPlayer simpleSound = new System.Media.SoundPlayer();
+            simpleSound.Stop();
+        }
+
         private void TmeStartcheck_Tick(object sender, EventArgs e)
         {
             if (liveStart == true && nameStart == true && bulletStart == true)
@@ -226,16 +240,11 @@ namespace WindowsFormsApp1
 
         private void TmrSpeedup_Tick(object sender, EventArgs e)
         {
-            if (TmrEnemy.Interval > 30)
+            if (TmrEnemy.Interval < 20)
             {
-                TmrEnemy.Interval = 35;
+                TmrEnemy.Interval = 20;
             }
             else TmrEnemy.Interval -= 4;
-
-           
-
-
-
         }
 
         private void MnuStop_Click(object sender, EventArgs e)
