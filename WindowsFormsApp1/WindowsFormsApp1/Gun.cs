@@ -15,8 +15,8 @@ namespace WindowsFormsApp1
         public Rectangle gunrec;
         public Gun()
         {
-            width = 20;
-            height = 40;
+            width = 30;
+            height = 20;
             y = -100;
             x = -100;
             gunImage = Image.FromFile("bullet.png");
