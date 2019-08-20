@@ -167,6 +167,7 @@ namespace WindowsFormsApp1
         {
             string context = TxtBullets.Text;
             bool isnumber = true;
+          
             //This loop checks for numbers as characters are entered
             for (int i = 0; i < context.Length; i++)
             {
@@ -178,6 +179,7 @@ namespace WindowsFormsApp1
             }
             //If not a number clear the textbox and focus on it
             //to enter lives again
+            
             if (isnumber == false)
             {
                 TxtBullets.Clear();

@@ -140,6 +140,7 @@
             // TxtBullets
             // 
             this.TxtBullets.Location = new System.Drawing.Point(651, 416);
+            this.TxtBullets.MaxLength = 3;
             this.TxtBullets.Name = "TxtBullets";
             this.TxtBullets.Size = new System.Drawing.Size(100, 20);
             this.TxtBullets.TabIndex = 6;
@@ -148,6 +149,7 @@
             // TxtLives
             // 
             this.TxtLives.Location = new System.Drawing.Point(651, 240);
+            this.TxtLives.MaxLength = 3;
             this.TxtLives.Name = "TxtLives";
             this.TxtLives.Size = new System.Drawing.Size(100, 20);
             this.TxtLives.TabIndex = 7;
